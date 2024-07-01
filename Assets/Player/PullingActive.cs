@@ -22,7 +22,7 @@ public class PullingActive : MonoBehaviour {
 		if (Input.GetMouseButtonUp(0) && canJump) {
 			Vector3 dist = clickPosition - Input.mousePosition;
 			if (dist.magnitude != 0) {
-				rigid.velocity = dist.normalized * jumpPower;
+				rigid.velocity = Vector3.ClampMagnitude(dist / 20, jumpPower);
 			}
 		}
 	}
